@@ -1,0 +1,49 @@
+/*
+// Single Source shortest paths
+// Dijkstra algo steps // weighted graphs with positive edges
+1. First create a graph with adjacency list containing node and weight
+2. Sort the adj list according to weight
+3. Create a distance array of vertex size with +Number.MAX_VALUE defined
+4. Mark the distance of source as 0
+5. Create a Set, and push the the node : src and its weight as 0
+6. Iterate over the set, and pop out the node from set
+7. Store the current weight and node in variables and delete the set entry which is popped out
+8. Iterate over the child of the node popped out
+9. Add the old weight and child weight, making it as new weight 
+10. If the new weight is < old weight, remove that node from the set, and reenter that node in set with new set
+11. Also store the new weight in distance array for that node
+
+// Bellman algo steps // weighted graph with negative edges
+1. Create a distance array of total nodes, and mark them as Number.MAX_VALUE
+2. Mark the distance of source as 0
+3. Iterate over the  [u, v, w] of edges in the edges list // Relaxing the edges
+4. Check if the dist[u] + w < dist[v] -> yes, then dist[v] = dist[u] + w
+5. Repeat the 3rd and 4th steps, and if this time 4th condition is true, it means negative weight cycle
+
+// Floyd Warshall Algo // all kind of weighted graphs(+-)edges
+1.Create a adj matrix, and mark their weights as Number.MAX_VALUE
+2.Then, mark the distances given the edges list in adj list
+3.Mark the distances of diagonal elements as 0
+4.3 Loops - k, i , j
+5. Check if the dist[i][j] > dist[i][k] + dist[k][j] --> 
+6. if yes the dist[i][j] = dist[i][k] + dist[k][j] // tryinig to minimise the distances
+7. In the end, if any diagonal element value < 0 , that means negative weight cycle
+
+// (MST)Minimum Spanning tree - It is that tree, which is connected to all the vertex with minimum weight edges
+// Kruskal Algo
+1. Simply create a DSU with optimized version (Rank and path compression)
+2. Sort the edges according to the weight
+3. Now, iterate over [u, v, w] of edge list
+4. Finf the parent of u and v in s1 and s2
+5. If s1 !== s2 make the perform the union operation, and add the weight to a ans values
+
+// Topological Sorting
+// DFS Method
+1. Perform a dfs, and store the node in the end of dfs helper loop, and then reverse it
+// Also done by BFS Method
+1. Store the indegrees of all the edges
+2. Store the index of the element in q if indegree is 0
+3. Now perform bfs, aNd pull out the 1st element, and put this element in the result
+4. Now iterate over the child, and, reduce the indegree by 1
+5. if indegree is 0, put in the q again
+*/
